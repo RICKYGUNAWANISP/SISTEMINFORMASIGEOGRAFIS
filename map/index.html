@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/INDONESIA_KEC_0.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-7.25148785,109.298571955],[-6.82973015,110.015560045]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_INDONESIA_KEC_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>ID</strong><br />' + (feature.properties['ID'] !== null ? Autolinker.link(String(feature.properties['ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>ID_Kec</strong><br />' + (feature.properties['ID_Kec'] !== null ? Autolinker.link(String(feature.properties['ID_Kec'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Kecamatan</strong><br />' + (feature.properties['Kecamatan'] !== null ? Autolinker.link(String(feature.properties['Kecamatan'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['xcoord'] !== null ? Autolinker.link(String(feature.properties['xcoord'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ycoord'] !== null ? Autolinker.link(String(feature.properties['ycoord'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>kode_prop</strong><br />' + (feature.properties['kode_prop'] !== null ? Autolinker.link(String(feature.properties['kode_prop'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>kode_kab</strong><br />' + (feature.properties['kode_kab'] !== null ? Autolinker.link(String(feature.properties['kode_kab'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Penduduk</strong><br />' + (feature.properties['Penduduk'] !== null ? Autolinker.link(String(feature.properties['Penduduk'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>0-24</strong><br />' + (feature.properties['0-24'] !== null ? Autolinker.link(String(feature.properties['0-24'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>25-49</strong><br />' + (feature.properties['25-49'] !== null ? Autolinker.link(String(feature.properties['25-49'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>50-74</strong><br />' + (feature.properties['50-74'] !== null ? Autolinker.link(String(feature.properties['50-74'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_INDONESIA_KEC_0_0(feature) {
+            if (feature.properties['Penduduk'] >= 10428.000000 && feature.properties['Penduduk'] <= 27891.000000 ) {
+                return {
+                pane: 'pane_INDONESIA_KEC_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,240,217,1.0)',
+            }
+            }
+            if (feature.properties['Penduduk'] >= 27891.000000 && feature.properties['Penduduk'] <= 45354.000000 ) {
+                return {
+                pane: 'pane_INDONESIA_KEC_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,204,138,1.0)',
+            }
+            }
+            if (feature.properties['Penduduk'] >= 45354.000000 && feature.properties['Penduduk'] <= 62817.000000 ) {
+                return {
+                pane: 'pane_INDONESIA_KEC_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,141,89,1.0)',
+            }
+            }
+            if (feature.properties['Penduduk'] >= 62817.000000 && feature.properties['Penduduk'] <= 80280.000000 ) {
+                return {
+                pane: 'pane_INDONESIA_KEC_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,74,51,1.0)',
+            }
+            }
+            if (feature.properties['Penduduk'] >= 80280.000000 && feature.properties['Penduduk'] <= 97743.000000 ) {
+                return {
+                pane: 'pane_INDONESIA_KEC_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(179,0,0,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_INDONESIA_KEC_0');
+        map.getPane('pane_INDONESIA_KEC_0').style.zIndex = 400;
+        map.getPane('pane_INDONESIA_KEC_0').style['mix-blend-mode'] = 'normal';
+        var layer_INDONESIA_KEC_0 = new L.geoJson(json_INDONESIA_KEC_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_INDONESIA_KEC_0',
+            onEachFeature: pop_INDONESIA_KEC_0,
+            style: style_INDONESIA_KEC_0_0,
+        });
+        bounds_group.addLayer(layer_INDONESIA_KEC_0);
+        map.addLayer(layer_INDONESIA_KEC_0);
+        var overlay_googlemap_1 = L.tileLayer(' https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
+            opacity: 1.0
+        });
+        overlay_googlemap_1.addTo(map);
+        map.addLayer(overlay_googlemap_1);
+        setBounds();
+        var i = 0;
+        layer_INDONESIA_KEC_0.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Kecamatan'] !== null?String('<div style="color: #000000; font-size: 8pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Kecamatan']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_INDONESIA_KEC_0'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_INDONESIAKEC_0]);
+        map.on("zoomend", function(){
+            resetLabels([layer_INDONESIAKEC_0]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_INDONESIAKEC_0]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_INDONESIAKEC_0]);
+        });
+        </script>
+    </body>
+</html>
